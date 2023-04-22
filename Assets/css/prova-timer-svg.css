@@ -1,0 +1,34 @@
+svg{
+    width: 6rem;
+    height: 6rem;
+}
+
+#f-circle{
+    stroke: rgb(0, 255, 255);
+    stroke-width: 8px;
+    stroke-dasharray: 251;
+    stroke-dashoffset: 251;
+}
+
+.animation{
+    animation: anim 20s linear forwards;
+}
+
+#s-circle{
+    stroke: rgba(161, 161, 161, 0.5);
+    stroke-width: 8px;
+}
+
+.timer-text{
+    font-size: 0.5rem;
+}
+
+svg text{
+    fill: white;
+}
+
+@keyframes anim{
+    100%{
+        stroke-dashoffset: 0;
+    }
+}

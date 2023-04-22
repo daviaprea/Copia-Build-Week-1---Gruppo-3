@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="Assets/css/reset.css">
+    <link rel="stylesheet" href="Assets/css/style.css">
+    <link rel="stylesheet" href="Assets/css/benchmark-page.css">
+    <link rel="stylesheet" href="Assets/css/prova-timer-svg.css">
+    <link rel="stylesheet" href="Assets/css/resultpage.css">
+    <link rel="stylesheet" href="Assets/css/feedback.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <title>Quiz</title>
+    
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="content-h" id="content-h">
+            <img id="logo" src="Assets/img/epicode_logo.png" alt="Logo">
+        </div>
+        <div class="content" id="content">
+        </div>
+    </div>
+
+    <!-- Template della welcome page-->
+
+    <template id="welcome-page">
+        <div class="content-text">
+            <h3 id="wp-title">Welcome to <br><span>your exam</span></h3>
+            <h4>Instructions</h4>
+            <p>We don't expect most engineers to know the answers to all of these questions, so don't worry if you're
+                unsure of a few of them.</p>
+
+            <ul>
+                <li>Each question is <span>timed</span> and can only <span>answered once.</span></li>
+                <li>Changing browser tab or opening other windows will <span>invalidate the question</span>.</li>
+                <li>This exam will take approx. <span>0-5 minutes</span>.</li>
+            </ul>
+
+            <div class="content-f">
+                <div class="check">
+                    <input type="checkbox" name="" id="check">
+                    <span>I promise to answer myself without help from anyone</span>
+                </div>
+                <button id="proceed">PROCEED</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Template benchmark page-->
+
+    <template id="bp-template">
+        <div class="bp-content-text">
+            <h3 id="question"></h3>
+            <div class="answers" id="answers">
+
+            </div>
+            <p id="question-number">QUESTION <span id="q-number"></span><span class="pink">/10</span></p>
+        </div>
+    </template>
+
+    <!-- Template benchmark timer page-->
+
+    <template id="bp-timer">
+        <div class="bp-timer-position" id="bp-timer-position">
+            <svg>
+                <circle id="f-circle" class="animation" cx="3rem" cy="3rem" r="40" fill="transparent" />
+                <circle id="s-circle" cx="3rem" cy="3rem" r="40" fill="transparent" />
+                <text class="timer-text" x="50%" y="25%" text-anchor="middle" font-size="1.5rem"
+                    dy="0.5rem">SECONDS</text>
+                <text id="seconds" x="50%" y="50%" text-anchor="middle" font-size="1.8rem" dy="0.5rem">20</text>
+                <text class="timer-text" x="50%" y="65%" text-anchor="middle" font-size="1.5rem"
+                    dy="0.5rem">REMAINING</text>
+            </svg>
+        </div>
+    </template>
+
+    <!-- Template results page-->
+
+    <template id="rp-template">
+        <h3 id="rp-title"><span>Results</span></h3>
+            <p id="rp-sub">The summary of your answers:</p>
+        <div id="rp-main">
+            <div id="correct">
+                <p>Correct</p>
+                <p id="c-percent"><span></span></p>
+                <p><p id="c-number"></p>/10 question</p>
+            </div>
+            <div id="chart-container">
+                <canvas id="myChart"></canvas>
+            </div>
+            <div id="wrong">
+                <p>Wrong</p>
+                <p id="w-percent"><span></span></p>
+                <p><p id="w-number"></p>/10 question</p>
+            </div>
+        </div>
+        <div class="button-box">
+            <button id="rate-button"><span>RATE US</span></button>
+        </div>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <script>
+
+            a = window.wrongScore;
+            b = window.correctScore;
+    
+            console.log(a, b);
+    
+            let xValues = ['wrong', 'correct'];
+                let yValues = [a, b];
+                let barColors = [
+                    "#c2128d",
+                    "#00ffff",    
+                ];
+    
+                
+                new Chart("myChart", {
+                    type: "doughnut",
+                    data: {
+                        datasets: [{
+                            backgroundColor: barColors,
+                            data: yValues,
+                            borderColor: "transparent",
+                        }]
+                    },
+                    options: {
+                        cutoutPercentage: 70
+                    }
+                });
+        </script>
+    </template>
+
+    <template id="fb-template">
+        <div class="content-textt">
+
+            <h3>Tell us how it's going</h3>
+            <p class="pp">From 0 to 10,how likely are you to recommend EPICODE to a friend or a colleague?</p>
+            
+        </div>
+            <div class="rate">
+                <input type="radio" id="star1" name="rate" value="1" />
+                <label for="star1" title="text">1 stars</label>
+                <input type="radio" id="star2" name="rate" value="2" />
+                <label for="star2" title="text">2 stars</label>
+                <input type="radio" id="star3" name="rate" value="3" />
+                <label for="star3" title="text">3 stars</label>
+                <input type="radio" id="star4" name="rate" value="4" />
+                <label for="star4" title="text">4 stars</label>
+                <input type="radio" id="star5" name="rate" value="5" />
+                <label for="star5" title="text">5 star</label>
+                <input type="radio" id="star6" name="rate" value="6" />
+                <label for="star6" title="text">6 stars</label>
+                <input type="radio" id="star7" name="rate" value="7" />
+                <label for="star7" title="text">7 stars</label>
+                <input type="radio" id="star8" name="rate" value="8" />
+                <label for="star8" title="text">8 stars</label>
+                <input type="radio" id="star9" name="rate" value="9" />
+                <label for="star9" title="text">9 stars</label>
+                <input type="radio" id="star10" name="rate" value="10" />
+                <label for="star10" title="text">10 star</label>
+            </div>
+            
+            <div class="last">
+            
+                <p>Leave us an open feedback about your experience so far</p>
+                <input type="text" id="fb-text" placeholder="Write your comment here">
+            
+            </div>
+            
+            <div class="content-f">
+                <div class="bottone">
+                    <button>MORE INFO</button>
+                </div>
+            </div>
+    </template>
+
+    <script src="Assets/js/script-prova2.js"></script>
+</body>
+</html>

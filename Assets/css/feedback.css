@@ -1,0 +1,57 @@
+.rate { 
+    margin-right: 15rem;
+  margin-left: -2rem;
+   margin-bottom: 15%;
+   margin-top: 3%;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size :4rem;;
+    color:#170a3a;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: aqua;   
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: aqua;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: aqua;  
+}
+
+#comment{ font-weight: normal;
+    font-size: large;
+    color: gray;
+    margin-top:4%;
+    margin-right: 43%;
+}
+
+.hr{ width: 63%;
+    color: #c2128d;
+   
+}
+
+#fb-text{
+    width: 80%;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid fuchsia;
+    padding: 10px 40px;
+    margin-bottom: 70px;
+}

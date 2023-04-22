@@ -1,0 +1,75 @@
+#rp-title {
+    text-align: center;
+    font-size: 3em;
+}
+
+#rp-sub {
+    text-align: center;
+    font-size: 1.4em;
+}
+
+#rp-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+
+#correct{
+    line-height: 0.6;
+}
+
+#correct p {
+    font-size: 3em;
+}
+
+
+#correct #c-percent {
+    font-size: 4em;
+}
+
+#correct #c-number {
+    font-size: 1.5em;
+}
+
+#wrong{
+    line-height: 0.6;
+    text-align: right;
+}
+
+#wrong p {
+    font-size: 3em;
+}
+
+
+#wrong #w-percent {
+    font-size: 4em;
+}
+
+#wrong #w-number {
+    font-size: 1.5em;
+}
+
+.button-box {
+    text-align: center;
+}
+
+.button-box button {
+    font-size: 1.8em;
+    padding: 15px;
+    padding-left: 60px;
+    padding-right: 60px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 4px solid white;
+    color: white;
+}
+
+.button-box button:hover {
+    cursor: pointer;
+}
+
+#chart-container {
+    width: 600px;
+    height: 300px;
+}
